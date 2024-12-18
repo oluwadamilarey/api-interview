@@ -5,7 +5,7 @@ A robust REST API built with Express.js and TypeScript, featuring authentication
 ## Features
 
 - User authentication with JWT
-- Role-based authorization (User/Admin) 
+- Role-based authorization (User/Admin)
 - Email verification
 - CRUD operations for posts and comments
 - Rate limiting
@@ -25,12 +25,14 @@ A robust REST API built with Express.js and TypeScript, featuring authentication
 ## Getting Started
 
 1. Clone the repository
+
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone https://github.com/oluwadamilarey/api-interview
+cd api-interview
 ```
 
 2. Install dependencies
+
 ```bash
 npm install
 ```
@@ -38,6 +40,7 @@ npm install
 3. Set up environment variables
 
 Create a `.env` file in the root directory:
+
 ```env
 NODE_ENV=development
 PORT=3000
@@ -50,17 +53,20 @@ RATE_LIMIT_MAX=100
 ```
 
 4. Start PostgreSQL
+
 ```bash
 docker compose up -d
 ```
 
 5. Run database migrations
+
 ```bash
 npx prisma generate
 npx prisma migrate dev
 ```
 
 6. Start the server
+
 ```bash
 npm run dev
 ```
@@ -75,6 +81,7 @@ The API will be available at `http://localhost:3000`
 ## API Endpoints
 
 ### Authentication
+
 ```
 POST /api/auth/signup         # Register a new user
 POST /api/auth/login          # Login user
@@ -82,6 +89,7 @@ POST /api/auth/admin         # Create admin (Admin only)
 ```
 
 ### Posts
+
 ```
 GET    /api/posts            # Get all posts
 GET    /api/posts/:id        # Get single post
@@ -91,6 +99,7 @@ DELETE /api/posts/:id        # Delete post (Auth required)
 ```
 
 ### Comments
+
 ```
 GET    /api/posts/:postId/comments     # Get post comments
 POST   /api/posts/:postId/comments     # Create comment (Auth required)
@@ -99,6 +108,7 @@ DELETE /api/comments/:id              # Delete comment (Auth required)
 ```
 
 ### User Management (Admin only)
+
 ```
 GET    /api/users            # Get all users
 PATCH  /api/users/:id/role   # Update user role
@@ -110,12 +120,14 @@ DELETE /api/users/:id        # Delete user
 1. Set up test environment
 
 Create a `.env.test` file:
+
 ```env
 NODE_ENV=test
 DATABASE_URL="postgresql://test_user:test_password@localhost:5433/test_db"
 ```
 
 2. Run tests
+
 ```bash
 npm test
 ```
@@ -137,6 +149,7 @@ The API uses a centralized error handling mechanism:
 - Custom limits for post/comment creation
 
 ## Project Structure
+
 ```
 ├── src/
 │   ├── app.ts                 # Express app setup
